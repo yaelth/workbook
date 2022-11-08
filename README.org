@@ -1,5 +1,16 @@
-#+title: Workbook
+#+title: Solutions for touretzky2013common
 #+author: Ioannis Eleftheriou
+
+A workbook with exercises and solution (attempts) from Common LISP: A gentle introduction to symbolic computation by David S. Touretzky.
+#+begin_src latex
+@book{touretzky2013common,
+  title={Common LISP: A gentle introduction to symbolic computation},
+  author={Touretzky, David S},
+  year={2013},
+  publisher={Courier Corporation}
+}
+#+end_src
+
 
 * Table of Contents :TOC:
 - [[#chapter-1-functions-and-data][Chapter 1 Functions and Data]]
