@@ -1,7 +1,6 @@
 #+title: Workbook
 #+author: Ioannis Eleftheriou
 
-
 * Chapter 1 Functions and Data
 ** 1.1
 [...] User your knowledge of arithmetic to fill in the missing item
@@ -65,3 +64,143 @@ Show how to write TWOP in terms of ZEROP and SUB2
 (defun twop (num)
   (zerop (sub2 num)))
 #+end_src
+** 1.6
+The HALF function returns a number that is one-half of its input. Show how to define HALF two different ways.
+
+*** Solution
+#+begin_src lisp
+(defun half (num)
+  (/ num 2))
+#+end_src
+
+#+begin_src lisp
+(defun half (num)
+  (* num 0.5))
+#+end_src
+** 1.7
+Write a MULTI-DIGIT-P predicate that returns true if its input is
+
+*** Solution
+#+begin_src lisp
+(defun multi-digit-p (num)
+  (> num 9))
+#+end_src
+** 1.8
+What does this function do to a number?
+
+*** Solution
+Multiplies by -1.
+** 1.9
+Write a predicate TWOMOREP that returns T if its first input is exactly two more than its second input. Use the ADD2 function in your definition of TWOMOREP.
+
+*** Solution
+#+begin_src lisp
+(defun twomorep (n1 n2)
+  (= n2 (add2 n1)))
+#+end_src
+** 1.10
+Find a way to write the TWOMOREP predicate using SUB2 instead of ADD2.
+
+*** Solution
+#+begin_src lisp
+(defun twomorep (n1 n2)
+  (= n1 (sub2 n2)))
+#+end_src
+** 1.11
+The average of two numbers is half their sum.  Write the AVERAGE function.
+
+*** Solution
+#+begin_src lisp
+(defun average (n1 n2)
+  (/ (+ n1 n2) 2))
+#+end_src
+
+** 1.12
+Write a MORE-THAN-HALF-P predicate that returns T if its first input
+is more than half of its second input.
+
+*** Solution
+#+begin_src lisp
+(defun more-than-half-p (n1 n2)
+  (> n1 (/ n2 2)))
+#+end_src
+** 1.13
+The following function returns the same result no matter what its input. What result does it return?
+
+*** Solution
+#+begin_src lisp
+(defun testp (something)
+  (symbolp (numberp something)))
+
+(testp 100) ;=> t
+(testp t) ;=> t
+(testp nil) ;=> t
+#+end_src
+** 1.14
+Fill in the results of the following computations
+*** Solutions
+| T                |
+| NIL              |
+| UNBOUND-VARIABLE |
+** 1.15
+Write a predicate NOT-ONEP that returns T if its input is anything other than one.
+
+*** Solution
+#+begin_src lisp
+(defun not-onep (num)
+  (not (= num 1)))
+#+end_src
+
+** 1.16
+Write the predicate NOT-PLUSP that returns T if its input is not greater
+than zero.
+
+*** Solution
+#+begin_src lisp
+(defun not-plusp (num)
+  (not (> num 0)))
+#+end_src
+
+** 1.17
+Some earlier Lisp dialects did not have the EVENP primitive; they only had ODDP. Show how to define EVENP in terms of ODDP.
+
+*** Solution
+#+begin_src lisp
+(defun evenp (num)
+  (not (oddp num)))
+#+end_src
+
+** 1.18
+Under what condition does this predicate function return T?
+
+#+begin_src lisp
+(lambda (num)
+  (zerop (add1 (add1 num))))
+#+end_src
+
+*** Solution
+When input is -2.
+
+** 1.19
+What result does the function below produce when given the input NIL? What about the input T? Will all data flow through this function unchanged? What result is produced for the input RUTABAGA?
+
+#+begin_src lisp
+(lambda (input) (not (not input)))
+#+end_src
+
+*** Solution
++ When input is NIL, output is T.
++ Not all data will flow through this function unchanged.
+
+#+begin_src lisp
+(defun rutabaga-function (something)
+  (not (not something)))
+
+(rutabaga-function 'rutabaga) ;=> t
+#+end_src
+
++ Result for the symbol RUTABAGA is t.
+** 1.20
+A truth function is a function whose inputs and output are truth values, that is, true or false. NOT is a truth function. (Even though NOT accepts other inputs besides T or NIL, it only cares if its input is true or not.) Write XOR, the exclusive-or truth function, which returns T when one of its inputs is NIL and the other is T, but returns NIL when both are NIL or both are T.
+
+*** TODO solution
