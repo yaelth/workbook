@@ -24,6 +24,12 @@
   - [[#119][1.19]]
   - [[#120][1.20]]
   - [[#121][1.21]]
+  - [[#122][1.22]]
+  - [[#123][1.23]]
+  - [[#124][1.24]]
+  - [[#125][1.25]]
+  - [[#126][1.26]]
+  - [[#127][1.27]]
 
 * Chapter 1 Functions and Data
 ** 1.1
@@ -254,3 +260,49 @@ What is wrong with each of these functions?
 + TYPE-ERROR
 + SIMPLE-PROGRAM-ERROR (EQUAL function requires two inputs)
 + SIMPLE-PROGRAM-ERROR (NOT function requires a single input)
+
+** 1.22
+Are all predicates functions? Are all functions predicates?
+
+*** Solution
+Yes. No.
+
+** 1.23
+Which built-in predicates introduced in this chapter have names that do not end in "P"?
+
+*** Solution
+EQUAL, <, >.
+
+** 1.24
+Is NUMBER a number? Is SYMBOL a symbol?
+
+*** Solution
+No. Yes.
+
+** 1.25
+Why is FALSE true in Lisp?
+
+*** Solution
+FALSE is a symbol, not a boolean value.
+
+** 1.26
+True or false: (a) All predicates accept T or NIL as input; (b) all predicates produce T or NIL as output.
+
+*** Solution
+a) False
+b) True
+
+** 1.27
+Give an example of the use of EVENP that would cause a wrong-type-input error. Give an example that would cause a wrong-number-of-inputs error.
+
+*** Solution
+
+Wrong type of input
+#+begin_src lisp
+(evenp 'something)
+#+end_src
+
+Wrong number of inputs.
+#+begin_src lisp
+(evenp)
+#+end_src
