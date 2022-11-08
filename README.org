@@ -26,7 +26,7 @@
 
 * Chapter 1 Functions and Data
 ** 1.1
-[...] User your knowledge of arithmetic to fill in the missing item
+[...] Use your knowledge of arithmetic to fill in the missing item
 
 *** Solution
 |          13 |
