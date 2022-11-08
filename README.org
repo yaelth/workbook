@@ -1,0 +1,67 @@
+#+title: Workbook
+#+author: Ioannis Eleftheriou
+
+
+* Chapter 1 Functions and Data
+** 1.1
+[...] User your knowledge of arithmetic to fill in the missing item
+
+*** Solution
+|          13 |
+|           3 |
+|           / |
+|           3 |
+|           3 |
+|         -48 |
+| \frac{5}{3} |
+|           0 |
+|           - |
+| \frac{2}{3} |
+|           2 |
+
+** 1.2
+
+[...] Put an "S" if it is a symbol, "I" if it is an integer, or "N" if it is some other kind of number.
+*** Solution
+| S |
+| I |
+| S |
+| S |
+| I |
+| N |
+| S |
+| S |
+| S |
+| I |
+| I |
+| S |
+
+** 1.3
+Fill in the result of each computation
+
+*** Solution
+| T   |
+| NIL |
+| NIL |
+| NIL |
+| T   |
+| T   |
+| NIL |
+
+** 1.4
+Define a SUB2 function that subtracts two from its input.
+
+*** Solution
+#+begin_src lisp
+(defun sub2 (num)
+  (- num 2))
+#+end_src
+
+** 1.5
+Show how to write TWOP in terms of ZEROP and SUB2
+
+*** Solution
+#+begin_src lisp
+(defun twop (num)
+  (zerop (sub2 num)))
+#+end_src
