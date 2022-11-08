@@ -35,6 +35,8 @@
   - [[#22][2.2]]
   - [[#23][2.3]]
   - [[#24][2.4]]
+  - [[#25][2.5]]
+  - [[#26][2.6]]
 
 * Chapter 1 Functions and Data
 ** 1.1
@@ -380,4 +382,49 @@ What is the parenthesis notation for this cons cell structure?
 *** Solution
 #+begin_src lisp
 ((BOWS ARROWS) (FLOWERS CHOCHOLATES))
+#+end_src
+** 2.5
+How many elements do each of the following lists have?
+
+*** Solution
+#+begin_src lisp
+(length '(open the pod bay doors hal))
+ ; => 6 (3 bits, #x6, #o6, #b110)
+
+(length '((open) (the pod bay doors) hal))
+ ; => 3 (2 bits, #x3, #o3, #b11)
+
+(length '((1 2 3) (4 5 6) (7 8 9) (10 11 12)))
+ ; => 4 (3 bits, #x4, #o4, #b100)
+
+(length '((one) for all (and (two (for me)))))
+ ; => 4 (3 bits, #x4, #o4, #b100)
+
+(length '((q spades)
+          (7 hearts)
+          (6 clubs)
+          (5 diamonds)
+          (2 diamonds)))
+ ; => 5 (3 bits, #x5, #o5, #b101)
+
+(length '((pennsylvania (the keystone state))
+          (new-jersey (the garden state))
+          (massachussets (the bay state))
+          (florida (the sunshine state))
+          (new-york (the empire state))
+          (indiana (the hoosier state))))
+ ; => 6 (3 bits, #x6, #o6, #b110)
+#+end_src
+
+** 2.6
+Match each list on the left with a corresponding list on the right by
+substituting NIL for () wherever possible. Pay careful attention to levels of parenthesization.
+
+*** Solution
+#+begin_src lisp
+() ;== NIL
+(()) ;== (NIL)
+((())) ;== ((NIL))
+(() ()) ;== (NIL NIL)
+(() (())) ;== (NIL (NIL))
 #+end_src
