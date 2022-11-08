@@ -30,6 +30,11 @@
   - [[#125][1.25]]
   - [[#126][1.26]]
   - [[#127][1.27]]
+- [[#chapter-2-lists][Chapter 2 Lists]]
+  - [[#21][2.1]]
+  - [[#22][2.2]]
+  - [[#23][2.3]]
+  - [[#24][2.4]]
 
 * Chapter 1 Functions and Data
 ** 1.1
@@ -305,4 +310,74 @@ Wrong type of input
 Wrong number of inputs.
 #+begin_src lisp
 (evenp)
+#+end_src
+* Chapter 2 Lists
+For drawing cons diagrams first load the following into the REPL.
+
+#+begin_src lisp
+(ql:quickload :draw-cons-tree)
+#+end_src
+
+** 2.1
+Show how the list (TO BE OR NOT TO BE) would be represented in computer memory by drawing its cons cell representation
+
+*** Solution
+#+begin_src lisp
+(TO BE OR NOT TO BE)
+; [o|o]---[o|o]---[o|o]---[o|o]---[o|o]---[o|/]
+;  |       |       |       |       |       |
+;  TO      BE      OR     NOT      TO      BE
+#+end_src
+** 2.2
+Which of these are well-formed lists? That is, which ones have properly balanced parentheses?
+#+begin_src lisp
+(A B (C)
+((A) (B))
+A B ) (C D)
+(A (B (C))
+(A (B (C)))
+(((A) (B)) (C))
+#+end_src
+
+*** Solution
+#+begin_src lisp
+(A B (C)
+((A) (B)) ; ok
+A B ) (C D)
+(A (B (C))
+(A (B (C))) ;ok
+(((A) (B)) (C)) ;ok
+#+end_src
+
+** 2.3
+Draw the cons cell representation of the list (PLEASE (BE MY) VALENTINE).
+
+*** Solution
+#+begin_src lisp
+; [o|o]---[o|o]---[o|/]
+;  |       |       |
+; PLEASE   |      VALENTINE
+;          |
+;         [o|o]---[o|/]
+;          |       |
+;          BE      MY
+#+end_src
+** 2.4
+What is the parenthesis notation for this cons cell structure?
+
+#+begin_src lisp
+; [o|o]---[o|/]
+;  |       |
+;  |      [o|o]---[o|/]
+;  |       |       |
+;  |      FLOWERS CHOCHOLATES
+;  |      
+; [o|o]---[o|/]
+;  |       |
+; BOWS    ARROWS
+#+end_src
+
+*** Solution
+#+begin_src lisp
+((BOWS ARROWS) (FLOWERS CHOCHOLATES))
 #+end_src
