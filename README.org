@@ -37,6 +37,11 @@
   - [[#24][2.4]]
   - [[#25][2.5]]
   - [[#26][2.6]]
+  - [[#27][2.7]]
+  - [[#28][2.8]]
+  - [[#29][2.9]]
+  - [[#210][2.10]]
+  - [[#211][2.11]]
 
 * Chapter 1 Functions and Data
 ** 1.1
@@ -428,3 +433,42 @@ substituting NIL for () wherever possible. Pay careful attention to levels of pa
 (() ()) ;== (NIL NIL)
 (() (())) ;== (NIL (NIL))
 #+end_src
+
+** 2.7
+What goes on inside the MY-SECOND box when it is given the input (HONK IF YOU LIKE GEESE)?
+
+*** Solution
+#+begin_src lisp
+
+(defun my-second (n)
+  (first (rest n)))
+
+(my-second '(HONK IF YOU LIKE GEESE))
+ ; => IF
+#+end_src
+
+** 2.8
+Show how to write MY-THIRD using FIRST and two RESTs.
+
+*** Solution
+#+begin_src lisp
+(defun my-third (n)
+  (first (rest (rest n))))
+#+end_src
+
+** 2.9
+Show how to write MY-THIRD using SECOND.
+
+*** Solution
+#+begin_src lisp
+(defun my-third (n)
+  (second (rest n)))
+#+end_src
+
+** 2.10
+Draw the cons cell representation of the list (((PHONE HOME))), which has three levels of parentheses. What is the CAR of this list? What is the CDR?
+
+*** Solution
+
+** 2.11
+Draw the cons cell representation of the list (A (TOLL) ((CALL))).
