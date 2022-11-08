@@ -42,6 +42,7 @@
   - [[#29][2.9]]
   - [[#210][2.10]]
   - [[#211][2.11]]
+  - [[#212][2.12]]
 
 * Chapter 1 Functions and Data
 ** 1.1
@@ -469,6 +470,45 @@ Show how to write MY-THIRD using SECOND.
 Draw the cons cell representation of the list (((PHONE HOME))), which has three levels of parentheses. What is the CAR of this list? What is the CDR?
 
 *** Solution
+#+begin_src lisp
+; [o|/]
+;  |
+; [o|/]
+;  |
+; [o|o]---[o|/]
+;  |       |
+; PHONE   HOME
+#+end_src
 
+CAR:
+#+begin_src lisp
+; [o|/]
+;  |
+; [o|o]---[o|/]
+;  |       |
+; PHONE   HOME
+#+end_src
+
+CDR:
+#+begin_src lisp
+; NIL
+#+end_src
 ** 2.11
 Draw the cons cell representation of the list (A (TOLL) ((CALL))).
+
+*** Solution
+#+begin_src lisp
+; [o|o]---[o|o]---[o|/]
+;  |       |       |
+;  A      [o|/]   [o|/]
+;          |       |
+;         TOLL    [o|/]
+;                  |
+;                 CALL
+#+end_src
+
+** 2.12
+What C...R name does Lisp use for the function that returns the fourth element of a list? How would you pronounce it?
+
+*** Solution
+CADDDR. Pronounced "fourth" by a normal person.
