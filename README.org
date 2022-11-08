@@ -3,51 +3,50 @@
 
 * Table of Contents :TOC:
 - [[#chapter-1-functions-and-data][Chapter 1 Functions and Data]]
-  - [[#11][1.1]]
-  - [[#12][1.2]]
-  - [[#13][1.3]]
-  - [[#14][1.4]]
-  - [[#15][1.5]]
-  - [[#16][1.6]]
-  - [[#17][1.7]]
-  - [[#18][1.8]]
-  - [[#19][1.9]]
-  - [[#110][1.10]]
-  - [[#111][1.11]]
-  - [[#112][1.12]]
-  - [[#113][1.13]]
-  - [[#114][1.14]]
-  - [[#115][1.15]]
-  - [[#116][1.16]]
-  - [[#117][1.17]]
-  - [[#118][1.18]]
-  - [[#119][1.19]]
-  - [[#120][1.20]]
-  - [[#121][1.21]]
-  - [[#122][1.22]]
-  - [[#123][1.23]]
-  - [[#124][1.24]]
-  - [[#125][1.25]]
-  - [[#126][1.26]]
-  - [[#127][1.27]]
+  - [[#11--use-your-knowledge-of-arithmetic-to-fill-in-the-missing-item][1.1 [...] Use your knowledge of arithmetic to fill in the missing item]]
+  - [[#12--put-an-s-if-it-is-a-symbol-i-if-it-is-an-integer-or-n-if-it-is-some-other-kind-of-number][1.2 [...] Put an "S" if it is a symbol, "I" if it is an integer, or "N" if it is some other kind of number.]]
+  - [[#13-fill-in-the-result-of-each-computation][1.3 Fill in the result of each computation]]
+  - [[#14-define-a-sub2-function-that-subtracts-two-from-its-input][1.4 Define a SUB2 function that subtracts two from its input.]]
+  - [[#15-show-how-to-write-twop-in-terms-of-zerop-and-sub2][1.5 Show how to write TWOP in terms of ZEROP and SUB2]]
+  - [[#16-the-half-function-returns-a-number-that-is-one-half-of-its-input-show-how-to-define-half-two-different-ways][1.6 The HALF function returns a number that is one-half of its input. Show how to define HALF two different ways.]]
+  - [[#17-write-a-multi-digit-p-predicate-that-returns-true-if-its-input-is][1.7 Write a MULTI-DIGIT-P predicate that returns true if its input is]]
+  - [[#18-what-does-this-function-do-to-a-number][1.8 What does this function do to a number?]]
+  - [[#19-write-a-predicate-twomorep-that-returns-t-if-its-first-input-is-exactly-two-more-than-its-second-input-use-the-add2-function-in-your-definition-of-twomorep][1.9 Write a predicate TWOMOREP that returns T if its first input is exactly two more than its second input. Use the ADD2 function in your definition of TWOMOREP.]]
+  - [[#110-find-a-way-to-write-the-twomorep-predicate-using-sub2-instead-of-add2][1.10 Find a way to write the TWOMOREP predicate using SUB2 instead of ADD2.]]
+  - [[#111-the-average-of-two-numbers-is-half-their-sum--write-the-average-function][1.11 The average of two numbers is half their sum.  Write the AVERAGE function.]]
+  - [[#112-write-a-more-than-half-p-predicate-that-returns-t-if-its-first-input-is-more-than-half-of-its-second-input][1.12 Write a MORE-THAN-HALF-P predicate that returns T if its first input is more than half of its second input.]]
+  - [[#113-the-following-function-returns-the-same-result-no-matter-what-its-input-what-result-does-it-return][1.13 The following function returns the same result no matter what its input. What result does it return?]]
+  - [[#114-fill-in-the-results-of-the-following-computations][1.14 Fill in the results of the following computations]]
+  - [[#115-write-a-predicate-not-onep-that-returns-t-if-its-input-is-anything-other-than-one][1.15 Write a predicate NOT-ONEP that returns T if its input is anything other than one.]]
+  - [[#116-write-the-predicate-not-plusp-that-returns-t-if-its-input-is-not-greater-than-zero][1.16 Write the predicate NOT-PLUSP that returns T if its input is not greater than zero.]]
+  - [[#117-some-earlier-lisp-dialects-did-not-have-the-evenp-primitive-they-only-had-oddp-show-how-to-define-evenp-in-terms-of-oddp][1.17 Some earlier Lisp dialects did not have the EVENP primitive; they only had ODDP. Show how to define EVENP in terms of ODDP.]]
+  - [[#118-under-what-condition-does-this-predicate-function-return-t][1.18 Under what condition does this predicate function return T?]]
+  - [[#119-what-result-does-the-function-below-produce-when-given-the-input-nil-what-about-the-input-t-will-all-data-flow-through-this-function-unchanged-what-result-is-produced-for-the-input-rutabaga][1.19 What result does the function below produce when given the input NIL? What about the input T? Will all data flow through this function unchanged? What result is produced for the input RUTABAGA?]]
+  - [[#120-a-truth-function-is-a-function-whose-inputs-and-output-are-truth-values-that-is-true-or-false-not-is-a-truth-function-even-though-not-accepts-other-inputs-besides-t-or-nil-it-only-cares-if-its-input-is-true-or-not-write-xor-the-exclusive-or-truth-function-which-returns-t-when-one-of-its-inputs-is-nil-and-the-other-is-t-but-returns-nil-when-both-are-nil-or-both-are-t][1.20 A truth function is a function whose inputs and output are truth values, that is, true or false. NOT is a truth function. (Even though NOT accepts other inputs besides T or NIL, it only cares if its input is true or not.) Write XOR, the exclusive-or truth function, which returns T when one of its inputs is NIL and the other is T, but returns NIL when both are NIL or both are T.]]
+  - [[#121-what-is-wrong-with-each-of-these-functions][1.21 What is wrong with each of these functions?]]
+  - [[#122-are-all-predicates-functions-are-all-functions-predicates][1.22 Are all predicates functions? Are all functions predicates?]]
+  - [[#123-which-built-in-predicates-introduced-in-this-chapter-have-names-that-do-not-end-in-p][1.23 Which built-in predicates introduced in this chapter have names that do not end in "P"?]]
+  - [[#124-is-number-a-number-is-symbol-a-symbol][1.24 Is NUMBER a number? Is SYMBOL a symbol?]]
+  - [[#125-why-is-false-true-in-lisp][1.25 Why is FALSE true in Lisp?]]
+  - [[#126-true-or-false-a-all-predicates-accept-t-or-nil-as-input-b-all-predicates-produce-t-or-nil-as-output][1.26 True or false: (a) All predicates accept T or NIL as input; (b) all predicates produce T or NIL as output.]]
+  - [[#127-give-an-example-of-the-use-of-evenp-that-would-cause-a-wrong-type-input-error-give-an-example-that-would-cause-a-wrong-number-of-inputs-error][1.27 Give an example of the use of EVENP that would cause a wrong-type-input error. Give an example that would cause a wrong-number-of-inputs error.]]
 - [[#chapter-2-lists][Chapter 2 Lists]]
-  - [[#21][2.1]]
-  - [[#22][2.2]]
-  - [[#23][2.3]]
-  - [[#24][2.4]]
-  - [[#25][2.5]]
-  - [[#26][2.6]]
-  - [[#27][2.7]]
-  - [[#28][2.8]]
-  - [[#29][2.9]]
-  - [[#210][2.10]]
-  - [[#211][2.11]]
-  - [[#212][2.12]]
+  - [[#21-show-how-the-list-to-be-or-not-to-be-would-be-represented-in-computer-memory-by-drawing-its-cons-cell-representation][2.1 Show how the list (TO BE OR NOT TO BE) would be represented in computer memory by drawing its cons cell representation]]
+  - [[#22-which-of-these-are-well-formed-lists-that-is-which-ones-have-properly-balanced-parentheses][2.2 Which of these are well-formed lists? That is, which ones have properly balanced parentheses?]]
+  - [[#23-draw-the-cons-cell-representation-of-the-list-please-be-my-valentine][2.3 Draw the cons cell representation of the list (PLEASE (BE MY) VALENTINE).]]
+  - [[#24-what-is-the-parenthesis-notation-for-this-cons-cell-structure][2.4 What is the parenthesis notation for this cons cell structure?]]
+  - [[#25-how-many-elements-do-each-of-the-following-lists-have][2.5 How many elements do each of the following lists have?]]
+  - [[#26-match-each-list-on-the-left-with-a-corresponding-list-on-the-right-by-substituting-nil-for--wherever-possible-pay-careful-attention-to-levels-of-parenthesization][2.6 Match each list on the left with a corresponding list on the right by substituting NIL for () wherever possible. Pay careful attention to levels of parenthesization.]]
+  - [[#27-what-goes-on-inside-the-my-second-box-when-it-is-given-the-input-honk-if-you-like-geese][2.7 What goes on inside the MY-SECOND box when it is given the input (HONK IF YOU LIKE GEESE)?]]
+  - [[#28-show-how-to-write-my-third-using-first-and-two-rests][2.8 Show how to write MY-THIRD using FIRST and two RESTs.]]
+  - [[#29-show-how-to-write-my-third-using-second][2.9 Show how to write MY-THIRD using SECOND.]]
+  - [[#210-draw-the-cons-cell-representation-of-the-list-phone-home-which-has-three-levels-of-parentheses-what-is-the-car-of-this-list-what-is-the-cdr][2.10 Draw the cons cell representation of the list (((PHONE HOME))), which has three levels of parentheses. What is the CAR of this list? What is the CDR?]]
+  - [[#211-draw-the-cons-cell-representation-of-the-list-a-toll-call][2.11 Draw the cons cell representation of the list (A (TOLL) ((CALL))).]]
+  - [[#212-what-cr-name-does-lisp-use-for-the-function-that-returns-the-fourth-element-of-a-list-how-would-you-pronounce-it][2.12 What C...R name does Lisp use for the function that returns the fourth element of a list? How would you pronounce it?]]
+  - [[#213][2.13]]
 
 * Chapter 1 Functions and Data
-** 1.1
-[...] Use your knowledge of arithmetic to fill in the missing item
-
+** 1.1 [...] Use your knowledge of arithmetic to fill in the missing item
 *** Solution
 |            13 |
 |             3 |
@@ -61,9 +60,7 @@
 | $\frac{2}{3}$ |
 |             2 |
 
-** 1.2
-
-[...] Put an "S" if it is a symbol, "I" if it is an integer, or "N" if it is some other kind of number.
+** 1.2 [...] Put an "S" if it is a symbol, "I" if it is an integer, or "N" if it is some other kind of number.
 *** Solution
 | S |
 | I |
@@ -78,9 +75,7 @@
 | I |
 | S |
 
-** 1.3
-Fill in the result of each computation
-
+** 1.3 Fill in the result of each computation
 *** Solution
 | T   |
 | NIL |
@@ -90,26 +85,20 @@ Fill in the result of each computation
 | T   |
 | NIL |
 
-** 1.4
-Define a SUB2 function that subtracts two from its input.
-
+** 1.4 Define a SUB2 function that subtracts two from its input.
 *** Solution
 #+begin_src lisp
 (defun sub2 (num)
   (- num 2))
 #+end_src
 
-** 1.5
-Show how to write TWOP in terms of ZEROP and SUB2
-
+** 1.5 Show how to write TWOP in terms of ZEROP and SUB2
 *** Solution
 #+begin_src lisp
 (defun twop (num)
   (zerop (sub2 num)))
 #+end_src
-** 1.6
-The HALF function returns a number that is one-half of its input. Show how to define HALF two different ways.
-
+** 1.6 The HALF function returns a number that is one-half of its input. Show how to define HALF two different ways.
 *** Solution
 #+begin_src lisp
 (defun half (num)
@@ -120,56 +109,41 @@ The HALF function returns a number that is one-half of its input. Show how to de
 (defun half (num)
   (* num 0.5))
 #+end_src
-** 1.7
-Write a MULTI-DIGIT-P predicate that returns true if its input is
-
+** 1.7 Write a MULTI-DIGIT-P predicate that returns true if its input is
 *** Solution
 #+begin_src lisp
 (defun multi-digit-p (num)
   (> num 9))
 #+end_src
-** 1.8
-What does this function do to a number?
-
+** 1.8 What does this function do to a number?
 *** Solution
 Multiplies by -1.
-** 1.9
-Write a predicate TWOMOREP that returns T if its first input is exactly two more than its second input. Use the ADD2 function in your definition of TWOMOREP.
-
+** 1.9 Write a predicate TWOMOREP that returns T if its first input is exactly two more than its second input. Use the ADD2 function in your definition of TWOMOREP.
 *** Solution
 #+begin_src lisp
 (defun twomorep (n1 n2)
   (= n2 (add2 n1)))
 #+end_src
-** 1.10
-Find a way to write the TWOMOREP predicate using SUB2 instead of ADD2.
-
+** 1.10 Find a way to write the TWOMOREP predicate using SUB2 instead of ADD2.
 *** Solution
 #+begin_src lisp
 (defun twomorep (n1 n2)
   (= n1 (sub2 n2)))
 #+end_src
-** 1.11
-The average of two numbers is half their sum.  Write the AVERAGE function.
-
+** 1.11 The average of two numbers is half their sum.  Write the AVERAGE function.
 *** Solution
 #+begin_src lisp
 (defun average (n1 n2)
   (/ (+ n1 n2) 2))
 #+end_src
 
-** 1.12
-Write a MORE-THAN-HALF-P predicate that returns T if its first input
-is more than half of its second input.
-
+** 1.12 Write a MORE-THAN-HALF-P predicate that returns T if its first input is more than half of its second input.
 *** Solution
 #+begin_src lisp
 (defun more-than-half-p (n1 n2)
   (> n1 (/ n2 2)))
 #+end_src
-** 1.13
-The following function returns the same result no matter what its input. What result does it return?
-
+** 1.13 The following function returns the same result no matter what its input. What result does it return?
 *** Solution
 #+begin_src lisp
 (defun testp (something)
@@ -179,58 +153,46 @@ The following function returns the same result no matter what its input. What re
 (testp t) ;=> t
 (testp nil) ;=> t
 #+end_src
-** 1.14
-Fill in the results of the following computations
+
+** 1.14 Fill in the results of the following computations
 *** Solutions
 | T                |
 | NIL              |
 | UNBOUND-VARIABLE |
-** 1.15
-Write a predicate NOT-ONEP that returns T if its input is anything other than one.
 
+** 1.15 Write a predicate NOT-ONEP that returns T if its input is anything other than one.
 *** Solution
 #+begin_src lisp
 (defun not-onep (num)
   (not (= num 1)))
 #+end_src
 
-** 1.16
-Write the predicate NOT-PLUSP that returns T if its input is not greater
-than zero.
-
+** 1.16 Write the predicate NOT-PLUSP that returns T if its input is not greater than zero.
 *** Solution
 #+begin_src lisp
 (defun not-plusp (num)
   (not (> num 0)))
 #+end_src
 
-** 1.17
-Some earlier Lisp dialects did not have the EVENP primitive; they only had ODDP. Show how to define EVENP in terms of ODDP.
-
+** 1.17 Some earlier Lisp dialects did not have the EVENP primitive; they only had ODDP. Show how to define EVENP in terms of ODDP.
 *** Solution
 #+begin_src lisp
 (defun evenp (num)
   (not (oddp num)))
 #+end_src
 
-** 1.18
-Under what condition does this predicate function return T?
-
+** 1.18 Under what condition does this predicate function return T?
 #+begin_src lisp
 (lambda (num)
   (zerop (add1 (add1 num))))
 #+end_src
-
 *** Solution
 When input is -2.
 
-** 1.19
-What result does the function below produce when given the input NIL? What about the input T? Will all data flow through this function unchanged? What result is produced for the input RUTABAGA?
-
+** 1.19 What result does the function below produce when given the input NIL? What about the input T? Will all data flow through this function unchanged? What result is produced for the input RUTABAGA?
 #+begin_src lisp
 (lambda (input) (not (not input)))
 #+end_src
-
 *** Solution
 + When input is NIL, output is T.
 + Not all data will flow through this function unchanged.
@@ -241,20 +203,15 @@ What result does the function below produce when given the input NIL? What about
 
 (rutabaga-function 'rutabaga) ;=> t
 #+end_src
-
 + Result for the symbol RUTABAGA is t.
-** 1.20
-A truth function is a function whose inputs and output are truth values, that is, true or false. NOT is a truth function. (Even though NOT accepts other inputs besides T or NIL, it only cares if its input is true or not.) Write XOR, the exclusive-or truth function, which returns T when one of its inputs is NIL and the other is T, but returns NIL when both are NIL or both are T.
 
+** 1.20 A truth function is a function whose inputs and output are truth values, that is, true or false. NOT is a truth function. (Even though NOT accepts other inputs besides T or NIL, it only cares if its input is true or not.) Write XOR, the exclusive-or truth function, which returns T when one of its inputs is NIL and the other is T, but returns NIL when both are NIL or both are T.
 *** Solution
 #+begin_src lisp
 (defun xor (n1 n2)
   (not (equal n1 n2)))
 #+end_src
-
-** 1.21
-What is wrong with each of these functions?
-
+** 1.21 What is wrong with each of these functions?
 #+begin_src lisp
 (lambda (n)
   (add1 (zerop n)))
@@ -274,43 +231,30 @@ What is wrong with each of these functions?
 + SIMPLE-PROGRAM-ERROR (EQUAL function requires two inputs)
 + SIMPLE-PROGRAM-ERROR (NOT function requires a single input)
 
-** 1.22
-Are all predicates functions? Are all functions predicates?
-
+** 1.22 Are all predicates functions? Are all functions predicates?
 *** Solution
 Yes. No.
 
-** 1.23
-Which built-in predicates introduced in this chapter have names that do not end in "P"?
-
+** 1.23 Which built-in predicates introduced in this chapter have names that do not end in "P"?
 *** Solution
 EQUAL, <, >.
 
-** 1.24
-Is NUMBER a number? Is SYMBOL a symbol?
-
+** 1.24 Is NUMBER a number? Is SYMBOL a symbol?
 *** Solution
 No. Yes.
 
-** 1.25
-Why is FALSE true in Lisp?
-
+** 1.25 Why is FALSE true in Lisp?
 *** Solution
 FALSE is a symbol, not a boolean value.
 
-** 1.26
-True or false: (a) All predicates accept T or NIL as input; (b) all predicates produce T or NIL as output.
-
+** 1.26 True or false: (a) All predicates accept T or NIL as input; (b) all predicates produce T or NIL as output.
 *** Solution
 a) False
 b) True
 
-** 1.27
-Give an example of the use of EVENP that would cause a wrong-type-input error. Give an example that would cause a wrong-number-of-inputs error.
-
+** 1.27 Give an example of the use of EVENP that would cause a wrong-type-input error. Give an example that would cause a wrong-number-of-inputs error.
 *** Solution
-
-Wrong type of input
+Wrong type of input.
 #+begin_src lisp
 (evenp 'something)
 #+end_src
@@ -320,15 +264,14 @@ Wrong number of inputs.
 (evenp)
 #+end_src
 * Chapter 2 Lists
+
 For drawing cons diagrams first load the following into the REPL.
 
 #+begin_src lisp
 (ql:quickload :draw-cons-tree)
 #+end_src
 
-** 2.1
-Show how the list (TO BE OR NOT TO BE) would be represented in computer memory by drawing its cons cell representation
-
+** 2.1 Show how the list (TO BE OR NOT TO BE) would be represented in computer memory by drawing its cons cell representation
 *** Solution
 #+begin_src lisp
 (TO BE OR NOT TO BE)
@@ -336,8 +279,8 @@ Show how the list (TO BE OR NOT TO BE) would be represented in computer memory b
 ;  |       |       |       |       |       |
 ;  TO      BE      OR     NOT      TO      BE
 #+end_src
-** 2.2
-Which of these are well-formed lists? That is, which ones have properly balanced parentheses?
+
+** 2.2 Which of these are well-formed lists? That is, which ones have properly balanced parentheses?
 #+begin_src lisp
 (A B (C)
 ((A) (B))
@@ -346,7 +289,6 @@ A B ) (C D)
 (A (B (C)))
 (((A) (B)) (C))
 #+end_src
-
 *** Solution
 #+begin_src lisp
 (A B (C)
@@ -357,9 +299,7 @@ A B ) (C D)
 (((A) (B)) (C)) ;ok
 #+end_src
 
-** 2.3
-Draw the cons cell representation of the list (PLEASE (BE MY) VALENTINE).
-
+** 2.3 Draw the cons cell representation of the list (PLEASE (BE MY) VALENTINE).
 *** Solution
 #+begin_src lisp
 ; [o|o]---[o|o]---[o|/]
@@ -370,9 +310,8 @@ Draw the cons cell representation of the list (PLEASE (BE MY) VALENTINE).
 ;          |       |
 ;          BE      MY
 #+end_src
-** 2.4
-What is the parenthesis notation for this cons cell structure?
 
+** 2.4 What is the parenthesis notation for this cons cell structure?
 #+begin_src lisp
 ; [o|o]---[o|/]
 ;  |       |
@@ -384,14 +323,12 @@ What is the parenthesis notation for this cons cell structure?
 ;  |       |
 ; BOWS    ARROWS
 #+end_src
-
 *** Solution
 #+begin_src lisp
 ((BOWS ARROWS) (FLOWERS CHOCHOLATES))
 #+end_src
-** 2.5
-How many elements do each of the following lists have?
 
+** 2.5 How many elements do each of the following lists have?
 *** Solution
 #+begin_src lisp
 (length '(open the pod bay doors hal))
@@ -422,10 +359,7 @@ How many elements do each of the following lists have?
  ; => 6 (3 bits, #x6, #o6, #b110)
 #+end_src
 
-** 2.6
-Match each list on the left with a corresponding list on the right by
-substituting NIL for () wherever possible. Pay careful attention to levels of parenthesization.
-
+** 2.6 Match each list on the left with a corresponding list on the right by substituting NIL for () wherever possible. Pay careful attention to levels of parenthesization.
 *** Solution
 #+begin_src lisp
 () ;== NIL
@@ -435,9 +369,7 @@ substituting NIL for () wherever possible. Pay careful attention to levels of pa
 (() (())) ;== (NIL (NIL))
 #+end_src
 
-** 2.7
-What goes on inside the MY-SECOND box when it is given the input (HONK IF YOU LIKE GEESE)?
-
+** 2.7 What goes on inside the MY-SECOND box when it is given the input (HONK IF YOU LIKE GEESE)?
 *** Solution
 #+begin_src lisp
 
@@ -448,27 +380,21 @@ What goes on inside the MY-SECOND box when it is given the input (HONK IF YOU LI
  ; => IF
 #+end_src
 
-** 2.8
-Show how to write MY-THIRD using FIRST and two RESTs.
-
+** 2.8 Show how to write MY-THIRD using FIRST and two RESTs.
 *** Solution
 #+begin_src lisp
 (defun my-third (n)
   (first (rest (rest n))))
 #+end_src
 
-** 2.9
-Show how to write MY-THIRD using SECOND.
-
+** 2.9 Show how to write MY-THIRD using SECOND.
 *** Solution
 #+begin_src lisp
 (defun my-third (n)
   (second (rest n)))
 #+end_src
 
-** 2.10
-Draw the cons cell representation of the list (((PHONE HOME))), which has three levels of parentheses. What is the CAR of this list? What is the CDR?
-
+** 2.10 Draw the cons cell representation of the list (((PHONE HOME))), which has three levels of parentheses. What is the CAR of this list? What is the CDR?
 *** Solution
 #+begin_src lisp
 ; [o|/]
@@ -493,9 +419,8 @@ CDR:
 #+begin_src lisp
 ; NIL
 #+end_src
-** 2.11
-Draw the cons cell representation of the list (A (TOLL) ((CALL))).
 
+** 2.11 Draw the cons cell representation of the list (A (TOLL) ((CALL))).
 *** Solution
 #+begin_src lisp
 ; [o|o]---[o|o]---[o|/]
@@ -507,8 +432,8 @@ Draw the cons cell representation of the list (A (TOLL) ((CALL))).
 ;                 CALL
 #+end_src
 
-** 2.12
-What C...R name does Lisp use for the function that returns the fourth element of a list? How would you pronounce it?
-
+** 2.12 What C...R name does Lisp use for the function that returns the fourth element of a list? How would you pronounce it?
 *** Solution
-CADDDR. Pronounced "fourth" by a normal person.
+CADDDR. Pronounced "fourth" by a normal person. Or /ka-dih-dih-der/.
+
+** 2.13
