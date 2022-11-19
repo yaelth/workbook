@@ -59,6 +59,7 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#215-using-the-list-a-b-c-d-e-f-fill-in-the-missing-parts-of-this-table][2.15 Using the list ((A B) (C D) (E F)), fill in the missing parts of this table.]]
   - [[#216-what-does-caar-do-when-given-the-input-fred-nil][2.16 What does CAAR do when given the input (FRED NIL)?]]
   - [[#217-fill-in-the-results-of-the-following-computations][2.17 Fill in the results of the following computations.]]
+  - [[#218-write-a-function-that-takes-any-two-inputs-and-makes-a-list-of-them-using-cons][2.18 Write a function that takes any two inputs and makes a list of them using CONS.]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -533,4 +534,14 @@ The interpreter expects to get the rest of the elements from a list stored in BL
  ; => NIL
 (car nil)
  ; => NIL
+#+end_src
+** 2.18 Write a function that takes any two inputs and makes a list of them using CONS.
+*** Solution
+#+begin_src lisp
+(defun combine (n1 n2)
+  (cons n1 (cons n2 nil)))
+ ; => COMBINE
+
+(combine 1 2)
+ ; => (1 2)
 #+end_src
