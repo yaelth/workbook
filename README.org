@@ -65,6 +65,10 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#221-write-a-function-that-takes-four-inputs-and-returns-a-two-element-nested-list-the-first-element-should-be-a-list-of-the-first-two-inputs-and-the-second-element-a-list-of-the-last-two-inputs][2.21 Write a function that takes four inputs and returns a two-element nested list. The first element should be a list of the first two inputs, and the second element a list of the last two inputs.]]
   - [[#222-suppose-we-wanted-to-make-a-function-called-duo-cons-that-added-two-elements-to-the-front-of-a-list-remember-that-the-regular-cons-function-adds-only-one-element-to-a-list-duo-cons-would-be-a-function-of-three-inputs-for-example-if-the-inputs-were-the-symbol-patrick-the-symbol-seymour-and-the-list-marvin-duo--cons-would-return-the-list-patrick-seymour-marvin-show-how-to-write-the-duo-cons-function][2.22 Suppose we wanted to make a function called DUO-CONS that added two elements to the front of a list. Remember that the regular CONS function adds only one element to a list. DUO-CONS would be a function of three inputs. For example, if the inputs were the symbol PATRICK, the symbol SEYMOUR, and the list (MARVIN), DUO- CONS would return the list (PATRICK SEYMOUR MARVIN). Show how to write the DUO-CONS function.]]
   - [[#223-two-deeper-is-a-function-that-surrounds-its-input-with-two-levels-of-parentheses-two-deeper-of-moo-is-moo--two-deeper-of-bow-wow-is-bow-wow--show-how-to-write-two--deeper-using-list--write-another-version-using-cons][2.23 TWO-DEEPER is a function that surrounds its input with two levels of parentheses. TWO-DEEPER of MOO is ((MOO)).  TWO-DEEPER of (BOW WOW) is (((BOW WOW))).  Show how to write TWO- DEEPER using LIST.  Write another version using CONS.]]
+  - [[#224-what-built-in-lisp-function-would-extract-the-symbol-night-from-the-list-good-night][2.24 What built-in Lisp function would extract the symbol NIGHT from the list (((GOOD)) ((NIGHT)))?]]
+  - [[#225-why-do-cons-cells-and-the-cons-function-share-the-same-name][2.25 Why do cons cells and the CONS function share the same name?]]
+  - [[#226-what-do-these-two-functions-do-when-given-the-input-a-b-c][2.26 What do these two functions do when given the input (A B C)?]]
+  - [[#227][2.27]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -515,12 +519,14 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 (cadaddr testlist) ; Note that this function is undefined
  ; => F
 #+end_src
+
 ** 2.16 What does CAAR do when given the input (FRED NIL)?
 *** Solution
 #+begin_src lisp
 (caar '(FRED NIL))
  ; => ERROR: FRED is not of type LIST
 #+end_src
+
 ** 2.17 Fill in the results of the following computations.
 #+begin_src lisp
 (car '(post no bills))
@@ -540,6 +546,7 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 (car nil)
  ; => NIL
 #+end_src
+
 ** 2.18 Write a function that takes any two inputs and makes a list of them using CONS.
 *** Solution
 #+begin_src lisp
@@ -565,6 +572,7 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 (list nil nil)
  ; => (NIL NIL)
 #+end_src
+
 ** 2.20 What results are returned by the following?
 *** Solution
 #+begin_src lisp
@@ -577,6 +585,7 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 (cons '(t) nil)
  ; => ((T))
 #+end_src
+
 ** 2.21 Write a function that takes four inputs and returns a two-element nested list. The first element should be a list of the first two inputs, and the second element a list of the last two inputs.
 *** Solution
 #+begin_src lisp
@@ -586,6 +595,7 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 (testfun 1 2 3 4)
  ; => ((1 2) (3 4))
 #+end_src
+
 ** 2.22 Suppose we wanted to make a function called DUO-CONS that added two elements to the front of a list. Remember that the regular CONS function adds only one element to a list. DUO-CONS would be a function of three inputs. For example, if the inputs were the symbol PATRICK, the symbol SEYMOUR, and the list (MARVIN), DUO- CONS would return the list (PATRICK SEYMOUR MARVIN). Show how to write the DUO-CONS function.
 *** Solution
 #+begin_src lisp
@@ -596,6 +606,7 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 (duo-cons 1 2 '(3 4 5))
  ; => (1 2 3 4 5)
 #+end_src
+
 ** 2.23 TWO-DEEPER is a function that surrounds its input with two levels of parentheses. TWO-DEEPER of MOO is ((MOO)).  TWO-DEEPER of (BOW WOW) is (((BOW WOW))).  Show how to write TWO- DEEPER using LIST.  Write another version using CONS.
 *** Solution
 #+begin_src lisp
@@ -610,3 +621,34 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 (two-deeper '(1 2 3))
  ; => (((1 2 3)))
 #+end_src
+
+** 2.24 What built-in Lisp function would extract the symbol NIGHT from the list (((GOOD)) ((NIGHT)))?
+*** Solution
+#+begin_src lisp
+(caaadr '(((GOOD)) ((NIGHT))))
+#+end_src
+
+** 2.25 Why do cons cells and the CONS function share the same name?
+Because the purpose of the function is to construct cons cells.
+
+** 2.26 What do these two functions do when given the input (A B C)?
+#+begin_src lisp
+(lambda (inputlist) (length (cdr inputlist)))
+
+(lambda (inputlist) (cdr (length inputlist)))
+#+end_src
+
+*** Solution
+#+begin_src lisp
+(defun firstfun (inputlist) (length (cdr inputlist)))
+ ; => FIRSTFUN
+(firstfun '(A B C))
+ ; => 2 (2 bits, #x2, #o2, #b10)
+
+(defun secondfun (inputlist) (cdr (length inputlist)))
+ ; => SECONDFUN
+(secondfun '(A B C))
+ ; => SIMPLE-TYPE-ERROR: Number is not a list
+#+end_src
+
+** 2.27
