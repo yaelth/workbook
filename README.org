@@ -60,6 +60,8 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#216-what-does-caar-do-when-given-the-input-fred-nil][2.16 What does CAAR do when given the input (FRED NIL)?]]
   - [[#217-fill-in-the-results-of-the-following-computations][2.17 Fill in the results of the following computations.]]
   - [[#218-write-a-function-that-takes-any-two-inputs-and-makes-a-list-of-them-using-cons][2.18 Write a function that takes any two inputs and makes a list of them using CONS.]]
+  - [[#219-fill-in-the-results-of-the-following-computations][2.19 Fill in the results of the following computations.]]
+  - [[#220-what-results-are-returned-by-the-following][2.20 What results are returned by the following?]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -544,4 +546,31 @@ The interpreter expects to get the rest of the elements from a list stored in BL
 
 (combine 1 2)
  ; => (1 2)
+#+end_src
+** 2.19 Fill in the results of the following computations.
+*** Solution
+#+begin_src lisp
+;; Going to just interpret the box notation
+(list 'fred 'and 'wilma)
+ ; => (FRED AND WILMA)
+(list 'fred '(and wilma))
+ ; => (FRED (AND WILMA))
+(cons 'fred '(and wilma))
+ ; => (FRED AND WILMA)
+(cons nil nil)
+ ; => (NIL)
+(list nil nil)
+ ; => (NIL NIL)
+#+end_src
+** 2.20 What results are returned by the following?
+*** Solution
+#+begin_src lisp
+(list nil)
+ ; => (NIL)
+(list t nil)
+ ; => (T NIL)
+(cons t nil)
+ ; => (T)
+(cons '(t) nil)
+ ; => ((T))
 #+end_src
