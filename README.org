@@ -54,7 +54,8 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#210-draw-the-cons-cell-representation-of-the-list-phone-home-which-has-three-levels-of-parentheses-what-is-the-car-of-this-list-what-is-the-cdr][2.10 Draw the cons cell representation of the list (((PHONE HOME))), which has three levels of parentheses. What is the CAR of this list? What is the CDR?]]
   - [[#211-draw-the-cons-cell-representation-of-the-list-a-toll-call][2.11 Draw the cons cell representation of the list (A (TOLL) ((CALL))).]]
   - [[#212-what-cr-name-does-lisp-use-for-the-function-that-returns-the-fourth-element-of-a-list-how-would-you-pronounce-it][2.12 What C...R name does Lisp use for the function that returns the fourth element of a list? How would you pronounce it?]]
-  - [[#213][2.13]]
+  - [[#213-write-down-tables-similar-to-the-one-above-to-illustrate-how-to-get-to-each-word-in-the-list-fun-in-the-sun][2.13 Write down tables similar to the one above to illustrate how to get to each word in the list (((FUN)) (IN THE) (SUN)).]]
+  - [[#what-would-happen-if-you-tried-to-explain-the-operation-of-the-caadr-function-on-the-list-blue-cube-red-pyramid-by-reading-the-as-and-ds-from-left-to-right-instead-of-from-right-to-left][What would happen if you tried to explain the operation of the CAADR function on the list ((BLUE CUBE) (RED PYRAMID) by reading the As and Ds from left to right instead of from right to left?]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -447,4 +448,23 @@ CDR:
 *** Solution
 CADDDR. Pronounced "fourth" by a normal person. Or /ka-dih-dih-der/.
 
-** 2.13
+** 2.13 Write down tables similar to the one above to illustrate how to get to each word in the list (((FUN)) (IN THE) (SUN)).
+*** Solution
+#+begin_src lisp
+(setf testlist '(((FUN)) (IN THE) (SUN)))
+ ; => (((FUN)) (IN THE) (SUN))
+
+(caaar testlist)
+ ; => FUN
+
+(caadr testlist)
+ ; => IN
+
+(cadadr testlist)
+ ; => THE
+
+(caaddr testlist)
+ ; => SUN
+#+end_src
+
+** What would happen if you tried to explain the operation of the CAADR function on the list ((BLUE CUBE) (RED PYRAMID) by reading the As and Ds from left to right instead of from right to left?
