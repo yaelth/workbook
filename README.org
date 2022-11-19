@@ -55,7 +55,9 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#211-draw-the-cons-cell-representation-of-the-list-a-toll-call][2.11 Draw the cons cell representation of the list (A (TOLL) ((CALL))).]]
   - [[#212-what-cr-name-does-lisp-use-for-the-function-that-returns-the-fourth-element-of-a-list-how-would-you-pronounce-it][2.12 What C...R name does Lisp use for the function that returns the fourth element of a list? How would you pronounce it?]]
   - [[#213-write-down-tables-similar-to-the-one-above-to-illustrate-how-to-get-to-each-word-in-the-list-fun-in-the-sun][2.13 Write down tables similar to the one above to illustrate how to get to each word in the list (((FUN)) (IN THE) (SUN)).]]
-  - [[#what-would-happen-if-you-tried-to-explain-the-operation-of-the-caadr-function-on-the-list-blue-cube-red-pyramid-by-reading-the-as-and-ds-from-left-to-right-instead-of-from-right-to-left][What would happen if you tried to explain the operation of the CAADR function on the list ((BLUE CUBE) (RED PYRAMID) by reading the As and Ds from left to right instead of from right to left?]]
+  - [[#214-what-would-happen-if-you-tried-to-explain-the-operation-of-the-caadr-function-on-the-list-blue-cube-red-pyramid-by-reading-the-as-and-ds-from-left-to-right-instead-of-from-right-to-left][2.14 What would happen if you tried to explain the operation of the CAADR function on the list ((BLUE CUBE) (RED PYRAMID) by reading the As and Ds from left to right instead of from right to left?]]
+  - [[#215-using-the-list-a-b-c-d-e-f-fill-in-the-missing-parts-of-this-table][2.15 Using the list ((A B) (C D) (E F)), fill in the missing parts of this table.]]
+  - [[#216-what-does-caar-do-when-given-the-input-fred-nil][2.16. What does CAAR do when given the input (FRED NIL)?]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -467,4 +469,48 @@ CADDDR. Pronounced "fourth" by a normal person. Or /ka-dih-dih-der/.
  ; => SUN
 #+end_src
 
-** What would happen if you tried to explain the operation of the CAADR function on the list ((BLUE CUBE) (RED PYRAMID) by reading the As and Ds from left to right instead of from right to left?
+** 2.14 What would happen if you tried to explain the operation of the CAADR function on the list ((BLUE CUBE) (RED PYRAMID) by reading the As and Ds from left to right instead of from right to left?
+*** Solution
+We would expect to get an error. The equivalent expressiong would be CDAAR.
+#+begin_src lisp
+(cdaar ((BLUE CUBE) (RED PYRAMID)))
+ ; => BLUE not a list error
+#+end_src
+
+The interpreter expects to get the rest of the elements from a list stored in BLUE as a variable.
+
+** 2.15 Using the list ((A B) (C D) (E F)), fill in the missing parts of this table.
+*** Solution
+#+begin_src lisp
+(setf testlist '((A B) (C D) (E F)))
+
+(car testlist)
+ ; => (A B)
+
+(cddr testlist)
+ ; => ((E F))
+
+(cadr testlist)
+ ; => (C D)
+
+(cdar testlist)
+ ; => (B)
+
+(cadar testlist)
+ ; => B
+
+(caar testlist)
+ ; => A
+
+(cdaddr testlist)
+ ; => (F)
+
+(cadaddr testlist) ; Note that this function is undefined
+ ; => F
+#+end_src
+** 2.16. What does CAAR do when given the input (FRED NIL)?
+*** Solution
+#+begin_src lisp
+(caar '(FRED NIL))
+ ; => ERROR: FRED is not of type LIST
+#+end_src
