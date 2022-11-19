@@ -62,6 +62,9 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#218-write-a-function-that-takes-any-two-inputs-and-makes-a-list-of-them-using-cons][2.18 Write a function that takes any two inputs and makes a list of them using CONS.]]
   - [[#219-fill-in-the-results-of-the-following-computations][2.19 Fill in the results of the following computations.]]
   - [[#220-what-results-are-returned-by-the-following][2.20 What results are returned by the following?]]
+  - [[#221-write-a-function-that-takes-four-inputs-and-returns-a-two-element-nested-list-the-first-element-should-be-a-list-of-the-first-two-inputs-and-the-second-element-a-list-of-the-last-two-inputs][2.21 Write a function that takes four inputs and returns a two-element nested list. The first element should be a list of the first two inputs, and the second element a list of the last two inputs.]]
+  - [[#222-suppose-we-wanted-to-make-a-function-called-duo-cons-that-added-two-elements-to-the-front-of-a-list-remember-that-the-regular-cons-function-adds-only-one-element-to-a-list-duo-cons-would-be-a-function-of-three-inputs-for-example-if-the-inputs-were-the-symbol-patrick-the-symbol-seymour-and-the-list-marvin-duo--cons-would-return-the-list-patrick-seymour-marvin-show-how-to-write-the-duo-cons-function][2.22 Suppose we wanted to make a function called DUO-CONS that added two elements to the front of a list. Remember that the regular CONS function adds only one element to a list. DUO-CONS would be a function of three inputs. For example, if the inputs were the symbol PATRICK, the symbol SEYMOUR, and the list (MARVIN), DUO- CONS would return the list (PATRICK SEYMOUR MARVIN). Show how to write the DUO-CONS function.]]
+  - [[#223-two-deeper-is-a-function-that-surrounds-its-input-with-two-levels-of-parentheses-two-deeper-of-moo-is-moo--two-deeper-of-bow-wow-is-bow-wow--show-how-to-write-two--deeper-using-list--write-another-version-using-cons][2.23 TWO-DEEPER is a function that surrounds its input with two levels of parentheses. TWO-DEEPER of MOO is ((MOO)).  TWO-DEEPER of (BOW WOW) is (((BOW WOW))).  Show how to write TWO- DEEPER using LIST.  Write another version using CONS.]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -573,4 +576,37 @@ The interpreter expects to get the rest of the elements from a list stored in BL
  ; => (T)
 (cons '(t) nil)
  ; => ((T))
+#+end_src
+** 2.21 Write a function that takes four inputs and returns a two-element nested list. The first element should be a list of the first two inputs, and the second element a list of the last two inputs.
+*** Solution
+#+begin_src lisp
+(defun testfun (in1 in2 in3 in4)
+  (list (list in1 in2) (list in3 in4)))
+ ; => TESTFUN
+(testfun 1 2 3 4)
+ ; => ((1 2) (3 4))
+#+end_src
+** 2.22 Suppose we wanted to make a function called DUO-CONS that added two elements to the front of a list. Remember that the regular CONS function adds only one element to a list. DUO-CONS would be a function of three inputs. For example, if the inputs were the symbol PATRICK, the symbol SEYMOUR, and the list (MARVIN), DUO- CONS would return the list (PATRICK SEYMOUR MARVIN). Show how to write the DUO-CONS function.
+*** Solution
+#+begin_src lisp
+(defun duo-cons (input1 input2 input-list)
+  (cons input1 (cons input2 input-list)))
+ ; => DUO-CONS
+
+(duo-cons 1 2 '(3 4 5))
+ ; => (1 2 3 4 5)
+#+end_src
+** 2.23 TWO-DEEPER is a function that surrounds its input with two levels of parentheses. TWO-DEEPER of MOO is ((MOO)).  TWO-DEEPER of (BOW WOW) is (((BOW WOW))).  Show how to write TWO- DEEPER using LIST.  Write another version using CONS.
+*** Solution
+#+begin_src lisp
+;; List version
+(defun two-deeper (input)
+  (list (list input)))
+
+;; Cons version
+(defun two-deeper (input)
+  (cons (cons input ()) ()))
+
+(two-deeper '(1 2 3))
+ ; => (((1 2 3)))
 #+end_src
