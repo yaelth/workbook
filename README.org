@@ -70,6 +70,11 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#226-what-do-these-two-functions-do-when-given-the-input-a-b-c][2.26 What do these two functions do when given the input (A B C)?]]
   - [[#227-when-does-the-internal-representation-of-a-list-involve-more-cons-cells-than-the-list-has-elements][2.27 When does the internal representation of a list involve more cons cells than the list has elements?]]
   - [[#228-using-just-car-and-cdr-is-it-possible-to-write-a-function-that-returns-the-last-element-of-a-list-no-matter-how-long-the-list-is-explain][2.28 Using just CAR and CDR, is it possible to write a function that returns the last element of a list, no matter how long the list is? Explain.]]
+  -  [[#229-write-a-function-unary-add1-that-increases-a-unary-number-by-one][2.29 Write a function UNARY-ADD1 that increases a unary number by one.]]
+  - [[#230-what-does-the-cddr-function-do-to-unary-numbers][2.30 What does the CDDR function do to unary numbers?]]
+  - [[#231-write-a-unary-zerop-predicate][2.31 Write a UNARY-ZEROP predicate.]]
+  - [[#232-write-a-unary-greaterp-predicate-analogous-to-the--predicate-on-ordinary-numbers][2.32 Write a UNARY-GREATERP predicate, analogous to the > predicate on ordinary numbers.]]
+  - [[#233-car-can-be-viewed-as-a-predicate-on-unary-numbers-instead-of-returning-t-or-nil-car-returns-x-or-nil-remember-that-x-or-any-other-non-nil-object-is-taken-as-true-in-lisp-what-question-about-a-unary-number-does-car-answer][2.33 CAR can be viewed as a predicate on unary numbers. Instead of returning T or NIL, CAR returns X or NIL. Remember that X or any other non-NIL object is taken as true in Lisp. What question about a unary number does CAR answer?]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -675,3 +680,52 @@ When there is list nesting.
 ** 2.28 Using just CAR and CDR, is it possible to write a function that returns the last element of a list, no matter how long the list is? Explain.
 *** Solution
 No it isn't possible. When dealing with lists of arbritrary lengths it'd be only practical to require the use of predicate functions alongside the CAR and CDR functions.
+
+**  2.29 Write a function UNARY-ADD1 that increases a unary number by one.
+*** Solution
+#+begin_src lisp
+(defun unary-add1 (X)
+  (cons 'X X))
+ ; => UNARY-ADD1
+ ; => UNARY-ADD1
+ ; => UNARY-ADD1
+
+(unary-add1 '(X X X X))
+ ; => (X X X X X)
+#+end_src
+
+** 2.30 What does the CDDR function do to unary numbers?
+*** Solution
+Subtract by 2.
+
+** 2.31 Write a UNARY-ZEROP predicate.
+*** Solution
+#+begin_src lisp
+(defun unary-zerop (input)
+  (zerop (length input)))
+ ; => UNARY-ZEROP
+
+(unary-zerop '(X X X))
+ ; => NIL
+
+(unary-zerop '())
+ ; => T
+#+end_src
+
+** 2.32 Write a UNARY-GREATERP predicate, analogous to the > predicate on ordinary numbers.
+*** Solution
+#+begin_src lisp
+(defun unary-greaterp (x y)
+  (> (length x) (length y)))
+ ; => UNARY-GREATERP
+
+(unary-greaterp '(1 1 1) '(1 1))
+ ; => T
+
+(unary-greaterp '(1) '(1 1))
+ ; => NIL
+#+end_src
+
+** 2.33 CAR can be viewed as a predicate on unary numbers. Instead of returning T or NIL, CAR returns X or NIL. Remember that X or any other non-NIL object is taken as true in Lisp. What question about a unary number does CAR answer?
+*** Solution
+It is functionally equivalent to the oppposite of UNARY-ZEROP.
