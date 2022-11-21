@@ -75,6 +75,8 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#231-write-a-unary-zerop-predicate][2.31 Write a UNARY-ZEROP predicate.]]
   - [[#232-write-a-unary-greaterp-predicate-analogous-to-the--predicate-on-ordinary-numbers][2.32 Write a UNARY-GREATERP predicate, analogous to the > predicate on ordinary numbers.]]
   - [[#233-car-can-be-viewed-as-a-predicate-on-unary-numbers-instead-of-returning-t-or-nil-car-returns-x-or-nil-remember-that-x-or-any-other-non-nil-object-is-taken-as-true-in-lisp-what-question-about-a-unary-number-does-car-answer][2.33 CAR can be viewed as a predicate on unary numbers. Instead of returning T or NIL, CAR returns X or NIL. Remember that X or any other non-NIL object is taken as true in Lisp. What question about a unary number does CAR answer?]]
+  - [[#234-write-an-expression-involving-cascaded-calls-to-cons-to-construct-the-dotted-list-a-b-c--d][2.34 Write an expression involving cascaded calls to CONS to construct the dotted list (A B C . D).]]
+  - [[#235-draw-the-dotted-list-a--b-c--d-in-cons-cell-notation-write-an-expression-to-construct-this-list][2.35 Draw the dotted list ((A . B) (C . D)) in cons cell notation. Write an expression to construct this list.]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -729,3 +731,37 @@ Subtract by 2.
 ** 2.33 CAR can be viewed as a predicate on unary numbers. Instead of returning T or NIL, CAR returns X or NIL. Remember that X or any other non-NIL object is taken as true in Lisp. What question about a unary number does CAR answer?
 *** Solution
 It is functionally equivalent to the oppposite of UNARY-ZEROP.
+
+** 2.34 Write an expression involving cascaded calls to CONS to construct the dotted list (A B C . D).
+*** Solution
+#+begin_src lisp
+(cons 'A (cons 'B (cons 'C 'D)))
+ ; => (A B C . D)
+#+end_src
+
+** 2.35 Draw the dotted list ((A . B) (C . D)) in cons cell notation. Write an expression to construct this list.
+*** Solution
+#+begin_src lisp
+(ql:quickload 'draw-cons-tree)
+; To load "draw-cons-tree":
+;   Load 1 ASDF system:
+;     draw-cons-tree
+; ; Loading "draw-cons-tree"
+
+;  => (DRAW-CONS-TREE)
+
+(draw-cons-tree:draw-tree '((A . B) (C . D)))
+; [o|o]---[o|/]
+;  |       |
+;  |      [o|o]--- D
+;  |       |
+;  |       C
+;  |
+; [o|o]--- B
+;  |
+;  A
+;  => NIL
+
+(cons (cons 'A 'B) (cons (cons 'C 'D) NIL))
+ ; => ((A . B) (C . D))
+#+end_src
