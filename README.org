@@ -77,6 +77,16 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#233-car-can-be-viewed-as-a-predicate-on-unary-numbers-instead-of-returning-t-or-nil-car-returns-x-or-nil-remember-that-x-or-any-other-non-nil-object-is-taken-as-true-in-lisp-what-question-about-a-unary-number-does-car-answer][2.33 CAR can be viewed as a predicate on unary numbers. Instead of returning T or NIL, CAR returns X or NIL. Remember that X or any other non-NIL object is taken as true in Lisp. What question about a unary number does CAR answer?]]
   - [[#234-write-an-expression-involving-cascaded-calls-to-cons-to-construct-the-dotted-list-a-b-c--d][2.34 Write an expression involving cascaded calls to CONS to construct the dotted list (A B C . D).]]
   - [[#235-draw-the-dotted-list-a--b-c--d-in-cons-cell-notation-write-an-expression-to-construct-this-list][2.35 Draw the dotted list ((A . B) (C . D)) in cons cell notation. Write an expression to construct this list.]]
+  - [[#236-prove-by-contradiction-that-this-list-cannot-be-constructed-using-just-cons-hint-think-about-the-order-in-which-the-cells-are-created][2.36 Prove by contradiction that this list cannot be constructed using just CONS. /Hint:/ Think about the order in which the cells are created.]]
+- [[#chapter-3-eval-notation][Chapter 3 EVAL Notation]]
+  - [[#31-what-does-not-equal-3-abs--3-evaluate-to][3.1 What does (NOT (EQUAL 3 (ABS -3))) evaluate to?]]
+  - [[#32-write-an-expression-in-eval-notation-to-add-8-to-12-and-divide-the-result-by-2][3.2 Write an expression in EVAL notation to add 8 to 12 and divide the result by 2.]]
+  - [[#33-you-can-square-a-number-by-multiplying-it-by-itself-write-an-expression-in-eval-notation-to-add-the-square-of-3-and-the-square-of-4][3.3 You can square a number by multiplying it by itself. Write an expression in EVAL notation to add the square of 3 and the square of 4.]]
+  - [[#34-draw-an-evaltrace-diagram-for-each-of-the-following-expressions][3.4 Draw an evaltrace diagram for each of the following expressions.]]
+  - [[#35-write-definitions-for-half-cube-and-onemorep-using-defun-the-cube-function-should-take-a-number-n-as-input-and-return-n3][3.5 Write definitions for HALF, CUBE, and ONEMOREP using DEFUN. (The CUBE function should take a number n as input and return n^3.)]]
+  - [[#36-define-a-function-pythag-that-takes-two-inputs-x-and-y-and-returns-the-square-root-of-x2y2-you-may-recognize-this-as-pythagorass-formula-for-computing-the-length-of-the-hypotenuse-of-a-right-triangle-given-the-lengths-of-the-other-two-sides-pythag-3-4-should-return-50][3.6 Define a function PYTHAG that takes two inputs, x and y, and returns the square root of x2+y2. You may recognize this as Pythagoras’s formula for computing the length of the hypotenuse of a right triangle given the lengths of the other two sides. (PYTHAG 3 4) should return 5.0.]]
+  - [[#37-define-a-function-miles-per-gallon-that-takes-three-inputs-called-initial-odometer-reading-final-odometer-reading-and-gallons-consumed-and-computes-the-number-of-miles-traveled-per-gallon-of-gas][3.7 Define a function MILES-PER-GALLON that takes three inputs, called INITIAL-ODOMETER-READING, FINAL-ODOMETER-READING, and GALLONS-CONSUMED, and computes the number of miles traveled per gallon of gas.]]
+  - [[#38-how-would-you-define-square-in-box-notation][3.8 How would you define SQUARE in box notation?]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -764,4 +774,74 @@ It is functionally equivalent to the oppposite of UNARY-ZEROP.
 
 (cons (cons 'A 'B) (cons (cons 'C 'D) NIL))
  ; => ((A . B) (C . D))
+#+end_src
+
+** 2.36 Prove by contradiction that this list cannot be constructed using just CONS. /Hint:/ Think about the order in which the cells are created.
+*** Solution
+Let us assume that it is indeed possible to construct a circular list using just cons.
+#+begin_src lisp
+(defun circular-list-constructor (in1 in2 in3)
+  (cons in1 (cons in2 (cons in3 X)))) ; Where X as CDR points to first element of output list
+                                      ; Which is not yet generated, and therefore cannot be referenced.
+#+end_src
+Therefore, a circular list cannot be constructed using just the CONS function.
+* Chapter 3 EVAL Notation
+** 3.1 What does (NOT (EQUAL 3 (ABS -3))) evaluate to?
+*** Solution
+NIL.
+
+** 3.2 Write an expression in EVAL notation to add 8 to 12 and divide the result by 2.
+*** Solution
+#+begin_src lisp
+(/ (+ 8 12) 2)
+ ; => 10 (4 bits, #xA, #o12, #b1010)
+#+end_src
+
+** 3.3 You can square a number by multiplying it by itself. Write an expression in EVAL notation to add the square of 3 and the square of 4.
+*** Solution
+#+begin_src lisp
+(+ (* 3 3) (* 4 4))
+ ; => 25 (5 bits, #x19, #o31, #b11001)
+#+end_src
+
+** TODO 3.4 Draw an evaltrace diagram for each of the following expressions.
+** 3.5 Write definitions for HALF, CUBE, and ONEMOREP using DEFUN. (The CUBE function should take a number n as input and return n^3.)
+*** Solution
+#+begin_src lisp
+(defun half (x)
+  (/ x 2))
+
+(defun cube (x)
+  (* x x x))
+
+(defun onemorep (x y)
+  (equal x (+ y 1)))
+#+end_src
+
+** 3.6 Define a function PYTHAG that takes two inputs, x and y, and returns the square root of x2+y2. You may recognize this as Pythagoras’s formula for computing the length of the hypotenuse of a right triangle given the lengths of the other two sides. (PYTHAG 3 4) should return 5.0.
+*** Solution
+#+begin_src lisp
+(defun pythag (x y)
+  (sqrt (+ (* x x) (* y y))))
+ ; => PYTHAG
+
+(pythag 3 4)
+ ; => 5.0
+#+end_src
+
+** 3.7 Define a function MILES-PER-GALLON that takes three inputs, called INITIAL-ODOMETER-READING, FINAL-ODOMETER-READING, and GALLONS-CONSUMED, and computes the number of miles traveled per gallon of gas.
+*** Solution
+#+begin_src lisp
+(defun miles-per-gallon (initial-odometer-reading
+                         final-odometer-reading
+                         gallons-consumed)
+  (/ (- initial-odometer-reading final-odometer-reading)
+     gallons-consumed))
+#+end_src
+
+** 3.8 How would you define SQUARE in box notation?
+*** Solution
+#+begin_src lisp
+(defun square (x)
+  (* x x))
 #+end_src
