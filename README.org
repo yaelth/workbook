@@ -68,7 +68,8 @@ A workbook with exercises and solution (attempts) from Common LISP: A gentle int
   - [[#224-what-built-in-lisp-function-would-extract-the-symbol-night-from-the-list-good-night][2.24 What built-in Lisp function would extract the symbol NIGHT from the list (((GOOD)) ((NIGHT)))?]]
   - [[#225-why-do-cons-cells-and-the-cons-function-share-the-same-name][2.25 Why do cons cells and the CONS function share the same name?]]
   - [[#226-what-do-these-two-functions-do-when-given-the-input-a-b-c][2.26 What do these two functions do when given the input (A B C)?]]
-  - [[#227][2.27]]
+  - [[#227-when-does-the-internal-representation-of-a-list-involve-more-cons-cells-than-the-list-has-elements][2.27 When does the internal representation of a list involve more cons cells than the list has elements?]]
+  - [[#228-using-just-car-and-cdr-is-it-possible-to-write-a-function-that-returns-the-last-element-of-a-list-no-matter-how-long-the-list-is-explain][2.28 Using just CAR and CDR, is it possible to write a function that returns the last element of a list, no matter how long the list is? Explain.]]
 
 * Chapter 1 Functions and Data
 ** 1.1 Use your knowledge of arithmetic to fill in the missing item
@@ -651,4 +652,26 @@ Because the purpose of the function is to construct cons cells.
  ; => SIMPLE-TYPE-ERROR: Number is not a list
 #+end_src
 
-** 2.27
+** 2.27 When does the internal representation of a list involve more cons cells than the list has elements?
+*** Solution
+When there is list nesting.
+
+#+begin_src lisp
+(draw-cons-tree::draw-tree '(((((1))))))
+; [o|/]
+;  |
+; [o|/]
+;  |
+; [o|/]
+;  |
+; [o|/]
+;  |
+; [o|/]
+;  |
+;  1
+;  => NIL
+#+end_src
+
+** 2.28 Using just CAR and CDR, is it possible to write a function that returns the last element of a list, no matter how long the list is? Explain.
+*** Solution
+No it isn't possible. When dealing with lists of arbritrary lengths it'd be only practical to require the use of predicate functions alongside the CAR and CDR functions.
